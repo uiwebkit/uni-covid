@@ -16,21 +16,33 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2020",
+    "target": "es2017",
     "module": "es2020",
     "lib": [
-      "es2020",
+      "es2017",
       "dom"
     ],
     "paths": {
       "uni-common": [
-        // "dist/uni-common",
+        // "dist/uni-common"
         "projects/uni-common/src/public-api"
+      ],
+      "uni-auth": [
+        // "dist/uni-auth",
+        "projects/uni-auth/src/public-api"
+      ],
+      "uni-header": [
+        // "dist/uni-header",
+        "projects/uni-header/src/public-api"
       ],
       "uni-blockchain": [
         // "dist/uni-blockchain",
         "projects/uni-blockchain/src/public-api"
-      ]
+      ],
+      "uni-report": [
+        // "dist/uni-report",
+        "projects/uni-report/src/public-api"
+      ],
     }
   },
   "angularCompilerOptions": {

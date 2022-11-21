@@ -3,11 +3,14 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "blockchain": {
+    "covid": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -17,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/blockchain",
+            "outputPath": "dist/app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -70,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "blockchain:build:production"
+              "browserTarget": "covid:build:production"
             },
             "development": {
-              "browserTarget": "blockchain:build:development"
+              "browserTarget": "covid:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "blockchain:build"
+            "browserTarget": "covid:build"
           }
         },
         "test": {
@@ -163,6 +166,99 @@
             "main": "projects/uni-blockchain/src/test.ts",
             "tsConfig": "projects/uni-blockchain/tsconfig.spec.json",
             "karmaConfig": "projects/uni-blockchain/karma.conf.js"
+          }
+        }
+      }
+    },
+    "uni-header": {
+      "projectType": "library",
+      "root": "projects/uni-header",
+      "sourceRoot": "projects/uni-header/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/uni-header/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/uni-header/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/uni-header/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/uni-header/src/test.ts",
+            "tsConfig": "projects/uni-header/tsconfig.spec.json",
+            "karmaConfig": "projects/uni-header/karma.conf.js"
+          }
+        }
+      }
+    },
+    "uni-auth": {
+      "projectType": "library",
+      "root": "projects/uni-auth",
+      "sourceRoot": "projects/uni-auth/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/uni-auth/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/uni-auth/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/uni-auth/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/uni-auth/src/test.ts",
+            "tsConfig": "projects/uni-auth/tsconfig.spec.json",
+            "karmaConfig": "projects/uni-auth/karma.conf.js"
+          }
+        }
+      }
+    },
+    "uni-report": {
+      "projectType": "library",
+      "root": "projects/uni-report",
+      "sourceRoot": "projects/uni-report/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/uni-report/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/uni-report/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/uni-report/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/uni-report/src/test.ts",
+            "tsConfig": "projects/uni-report/tsconfig.spec.json",
+            "karmaConfig": "projects/uni-report/karma.conf.js"
           }
         }
       }

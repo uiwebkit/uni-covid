@@ -2,8 +2,6 @@
  * Public API Surface of uni-blockchain
  */
 
-export * from './lib/components/login/login.component';
-
 export * from './lib/components/blocks/blocks.component';
 export * from './lib/components/blocks/blocks.service';
 

@@ -1,8 +1,4 @@
 <div class='uni-container mat-elevation-z8'>
-  <div *ngIf='activeRequests > 0' class='uni-loading-shade'>
-    <mat-spinner></mat-spinner>
-  </div>
-
   <div class='uni-table-container'>
     <table mat-table [dataSource]='data' matSort matSortActive='level' matSortDisableClear matSortDirection='desc'
            class='uni-table'>

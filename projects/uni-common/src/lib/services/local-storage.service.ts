@@ -13,7 +13,7 @@ export class UniLocalStorageService {
   }
 
   getItem(key: string): unknown {
-    return JSON.parse(JSON.stringify(this.window.localStorage.getItem(key)));
+    return JSON.parse(this.window.localStorage.getItem(key) + '');
   }
 
   setItem(key: string, data: unknown): void {

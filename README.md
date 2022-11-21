@@ -1,30 +1,55 @@
-# Blockchain
+# Covid test task
 
-Create a simple Angular application that uses the [tzkt.io](https://tzkt.io) REST service API.
-Use Observables to pass around data between Services and UI components or use the NgRx framework
-for state management.
+Using Angular 12 and all required libraries create an application which consumes statistical data from
+the following public API:
 
-The REST API can be used to fetch data about the Tezos Blockchain.
+https://github.com/M-Media-Group/Covid-19-API
 
-The application should use the REST API to fetch the list of blocks and show them in a paged
-table.
+Acceptance criteria:
+- Application has to be well designed. Use common components.
+- Application has to be integrated with GitHub and allow to login only for GitHub users (Oauth).
+  o Of course GitHub requires registration of the application, so app has to be configurable
+  and the documentation has to be provided how to register app and start using.
+- Once logged in, user has to have ability to request statistical data based on country:
+  
+  1. the information regarding cases for the current moment:
 
-The endpoints to fetch the list of blocks are described [here](https://api.tzkt.io/#tag/Blocks).
+   confirmed
 
-Each row of the table should show the block level, proposer, timestamp and the number of
-transactions included in the block (this requires querying the 
-[transactions count endpoint](https://api.tzkt.io/#operation/Operations_GetTransactionsCount) and
-filtering for the desired block levels). The table should be sorted in descending order on the
-block level.
+   recovered
 
-Clicking on a row should go to a Details page where the block’s transactions are listed in a
-paged table. Use the [transactions endpoint](https://api.tzkt.io/#operation/Operations_GetTransactions)
-to fetch the transactions for a certain block level.
-The transactions table should display each transactions’ sender, target, amount and status.
+   deaths
 
-The UI does not need to be fancy, the important part is the code/business logic.
+   vaccinated level in % of total population
 
-Bonus: Add unit tests.
+  2. based on historical data should be shown:
+
+   new confirmed cases since last data available
+
+Additional requirements:
+
+- The code should follow good practices and have comments.
+- It is a good practice to upload source code to the Github repo and provide us the link.
 
 ## Demo
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`
+Run `npm i` ant than `ng serve` for a dev server. Navigate to `http://localhost:4200/`
+
+## Configuration
+
+### Step 1 
+- Do all steps from: https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app;
+- Open https://github.com/settings/developers and open your new application settings;
+- Save your Client ID and Client secrets for the further steps;
+- Do nothing from: https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps
+(because it does not work from Browser, due to CORS error);
+
+### Step 2
+- Login or signup at: https://firebase.google.com (Go to console);
+- Add "Authentication" project;
+- Open your "Authentication" project and at "Sign-in method" tab click "Add new provider" button (Github);
+- Populate all required data received from the Step 1;
+- Open "Project settings" (the cog near "Project overview") and at the "General" tab get data from "const firebaseConfig";
+
+### Step 3
+- Add firebaseConfig to environment variable of your Angular project and call: "initializeApp(environment.firebaseConfig)";
+- Do steps from: https://firebase.google.com/docs/auth/web/github-auth

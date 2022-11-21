@@ -4,6 +4,7 @@
 
 export * from './lib/models/interfaces/primitives/object.model';
 export * from './lib/models/interfaces/routes/routes.model';
+export * from './lib/models/interfaces/routes/routes-prod-gateways.model';
 
 export * from './lib/services/error-handler.service';
 export * from './lib/services/event-bus.service';

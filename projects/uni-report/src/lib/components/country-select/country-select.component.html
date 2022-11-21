@@ -1,0 +1,21 @@
+<form [formGroup]='countryForm'>
+  <mat-form-field appearance='fill' class='w-100'>
+    <mat-label>Select or enter your country</mat-label>
+
+    <input
+      type='text'
+      matInput
+      formControlName='country'
+      required
+      [matAutocomplete]='countries'
+    >
+
+    <mat-autocomplete #countries='matAutocomplete'>
+      <mat-optgroup *ngFor='let group of countryGroups$ | async' [label]='group.continent'>
+        <mat-option *ngFor='let name of group.countries' [value]='name'>
+          {{ name }}
+        </mat-option>
+      </mat-optgroup>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

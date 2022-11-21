@@ -6,13 +6,11 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { UniCommonModule } from 'uni-common';
-import { UniBlockchainModule } from 'uni-blockchain';
+import { UniHeaderModule } from 'uni-header';
 
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { apiRoutes } from './api-routes';
-
+import { AppRoutingModule } from './pages/app-routing.module';
+import { AppComponent } from './bootstrap/app.component';
 
 
 @NgModule({
@@ -25,14 +23,15 @@ import { apiRoutes } from './api-routes';
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !localStorage.getItem('debug') }),
 
-    UniCommonModule,
-    UniBlockchainModule,
-
+    UniHeaderModule,
     AppRoutingModule,
   ],
-  declarations: [AppComponent],
-  providers: [{ provide: 'uniRoutesServiceModel', useValue: apiRoutes }],
-  bootstrap: [AppComponent],
+  declarations: [AppComponent], // in one line, because always will be only one item
+  providers: [
+    // different api routes for production and debugging
+    { provide: 'uniRoutesServiceModel', useValue: apiRoutes }
+  ],
+  bootstrap: [AppComponent], // in one line, because always will be only one item
 })
 export class AppModule {
 }

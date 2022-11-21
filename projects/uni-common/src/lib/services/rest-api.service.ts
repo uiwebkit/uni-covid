@@ -18,7 +18,7 @@ export class UniRestApiService {
     private http: HttpClient,
     private localStorage: UniLocalStorageService,
     @Inject('uniRoutesServiceModel') private uniRoutes: UniRoutes = {
-      prod: { gateways: {}, urls: {} },
+      prod: { urls: {} },
       mock: { urls: {} },
     },
   ) {

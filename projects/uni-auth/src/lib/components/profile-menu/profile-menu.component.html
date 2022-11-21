@@ -1,0 +1,13 @@
+<!--  <p>{{ user.email }}</p>-->
+<!--  <p>{{ user.photoURL }}</p>-->
+
+<button mat-raised-button [color]="'primary'" [matMenuTriggerFor]='menu'>
+  {{ user?.displayName }}
+  <mat-icon>arrow_drop_down</mat-icon>
+</button>
+
+<mat-menu #menu='matMenu'>
+  <button mat-menu-item (click)='logout()'>
+    Logout
+  </button>
+</mat-menu>

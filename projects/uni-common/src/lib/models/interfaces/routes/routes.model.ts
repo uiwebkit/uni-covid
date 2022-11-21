@@ -1,8 +1,8 @@
-import { UniRoutesProd } from './routes-prod.model';
+// import { UniRoutesProd } from './routes-prod.model';
 import { UniRoutesMock } from './routes-mock.model';
 
 
 export interface UniRoutes {
-  prod: UniRoutesProd;
+  prod: UniRoutesMock;
   mock: UniRoutesMock;
 }

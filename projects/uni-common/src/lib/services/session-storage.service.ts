@@ -13,7 +13,7 @@ export class UniSessionStorageService {
   }
 
   getItem(key: string): unknown {
-    return JSON.parse(JSON.stringify(this.window.sessionStorage.getItem(key)));
+    return JSON.parse(this.window.sessionStorage.getItem(key) + '');
   }
 
   setItem(key: string, data: unknown): void {

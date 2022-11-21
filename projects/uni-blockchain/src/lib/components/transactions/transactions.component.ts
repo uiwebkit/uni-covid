@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { startWith } from 'rxjs/operators';
-import { takeUntil } from 'rxjs';
+import { startWith, takeUntil } from 'rxjs/operators';
 
 import { RxUnsubscribe, UniObject } from 'uni-common';
 
@@ -12,7 +11,6 @@ import { UniTransactionsService } from './transactions.service';
 @Component({
   selector: 'uni-transactions',
   templateUrl: './transactions.component.html',
-  styleUrls: ['./transactions.component.scss'],
 })
 export class UniTransactionsComponent extends RxUnsubscribe implements OnInit, AfterViewInit {
 
@@ -27,7 +25,8 @@ export class UniTransactionsComponent extends RxUnsubscribe implements OnInit, A
   private transactionsCounts: UniObject<number> = {};
   private params: Partial<{ selected: number; }> = {};
 
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator | undefined;
 
   constructor(private transactionsService: UniTransactionsService) {
     super();

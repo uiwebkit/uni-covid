@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { UniObject, UniWindowRefService } from 'uni-common';
 
-import { Block, ModifiedBlock } from '../../models/interfaces/block.model';
-import { UniBlockchainStoreService } from '../../store/blockchain-store.service';
+import { ModifiedBlock } from '../../models/interfaces/block.model';
 import { BlocksApiParams } from '../../models/interfaces/blocks-api-params.model';
+import { UniBlockchainStoreService } from '../../store/blockchain-store.service';
 
 
 @Injectable({ providedIn: 'root' })
@@ -16,28 +15,28 @@ export class UniBlocksService {
   constructor(
     private router: Router,
     private windowRef: UniWindowRefService,
-    private blockchainStore: UniBlockchainStoreService
+    private storeService: UniBlockchainStoreService,
   ) {
   }
 
   loadBlocksCount(): void {
-    this.blockchainStore.loadBlocksCount();
+    this.storeService.loadBlocksCount();
   }
 
   loadBlocks(payload: BlocksApiParams): void {
-    this.blockchainStore.loadBlocks(payload);
+    this.storeService.loadBlocks(payload);
   }
 
   getBlocksCount(): Observable<number> {
-    return this.blockchainStore.getBlocksCount();
+    return this.storeService.getBlocksCount();
   }
 
   getBlocks(): Observable<ModifiedBlock[]> {
-    return this.blockchainStore.getBlocks();
+    return this.storeService.getBlocks();
   }
 
   setSelectedBlock(payload: number): void {
-    this.blockchainStore.setSelectedBlock(payload);
+    this.storeService.setSelectedBlock(payload);
   }
 
   setQueryParams(queryParams: UniObject<number | undefined>): void {
